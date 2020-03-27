@@ -4,7 +4,7 @@
   -if user_signed_in?  
     .main__form
       .main__form__box
-      = form_with url: posts_path, local: true do |form|
+      = form_with url: posts_path,id: "new_post", local: true do |form|
         = form.text_area :content, class: "main__form__box__text", placeholder: "文字を入力（25文字以内)"
         = form.submit value = "投稿する", class: "main__form__btn"
   .main__footer Homework app 2020
