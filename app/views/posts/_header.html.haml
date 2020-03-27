@@ -2,7 +2,10 @@
   .header__contents
     .header__contents__logo Homework App
     .header__contents__right
-      .header__contents__right__name 田中
-      .header__contents__right__log 
-        = link_to "#", class: "cheader__contents__log__btn" do
-          ログイン
+      .header__contents__right__name
+        -if user_signed_in?
+          = current_user.nickname
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "cheader__contents__log__btn"
+        -else
+          = link_to "新規登録", new_user_registration_path, class: 'cheader__contents__right__name' 
+          = link_to "ログイン", new_user_session_path, class: 'cheader__contents__log__btn'
