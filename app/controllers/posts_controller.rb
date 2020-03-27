@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(created_at: :DESC)
+    @posts = Post.includes(:user).order(created_at: :DESC)
   end
 
   def new
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.permit(:content)
+    params.permit(:content).merge(user_id: current_user.id)
   end
 
 end

@@ -3,6 +3,7 @@
     .main__message__box__text
       = post.content
     .main__message__box__data
-      .main__message__box__data__name aa
+      .main__message__box__data__name
+        = post.user.nickname
       .main__message__box__data__date
         = post.created_at
