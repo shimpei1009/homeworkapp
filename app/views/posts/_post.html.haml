@@ -6,4 +6,4 @@
       .main__message__box__data__name
         = post.user.nickname
       .main__message__box__data__date
-        = post.created_at
+        = post.created_at.strftime("%Y/%m/%d %H:%M")
