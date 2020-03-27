@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user).order(created_at: :DESC)
+    @posts = Post.includes(:user)
   end
 
   def new
@@ -8,8 +8,11 @@ class PostsController < ApplicationController
   
   def create
     # binding.pry
-    Post.create(post_params)
-    redirect_to root_path
+    @post = Post.create(post_params)
+    respond_to do |format|
+      format.html { redirect_to root_path  }
+      format.json 
+    end
   end
 
   private
