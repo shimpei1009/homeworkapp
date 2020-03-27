@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   def create
     # binding.pry
     Post.create(post_params)
-    redirect_to posts_path
+    redirect_to root_path
   end
 
   private
